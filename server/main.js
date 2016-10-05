@@ -18,6 +18,9 @@ Meteor.methods({
         complete: !resolution.complete
       }
     });
+  },
+  deleteResolution(id) {
+    Resolutions.remove(id);
   }
 });
 
