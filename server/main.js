@@ -13,3 +13,7 @@ Meteor.methods({
     });
   }
 });
+
+Meteor.publish("allResolutions", function(){
+  return Resolutions.find();
+});

@@ -7,6 +7,19 @@ import Resolution from './Resolution.jsx';
 import LoadingText from '/client/partials/LoadingText.jsx';
 
 export default class ResolutionsWrapper extends TrackerReact(React.Component) {
+  constructor(){
+    super();
+    this.state = {
+      subscription: {
+        resolutions: Meteor.subscribe('allResolutions')
+      }
+    };
+  }
+
+  componentWillUnmount() {
+    this.state.subscription.resolutions.stop();
+  }
+
   resolutions() {
     return Resolutions.find().fetch();
   }
