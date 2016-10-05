@@ -26,4 +26,4 @@ export default class ResolutionsForm extends Component {
       </form>
     );
   }
-}
+};
