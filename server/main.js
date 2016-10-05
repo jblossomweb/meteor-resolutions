@@ -11,6 +11,13 @@ Meteor.methods({
       complete: false,
       createdAt: new Date()
     });
+  },
+  toggleComplete(resolution) {
+    Resolutions.update(resolution._id, {
+      $set: {
+        complete: !resolution.complete
+      }
+    });
   }
 });
 
