@@ -23,9 +23,10 @@ export default class ResolutionsWrapper extends TrackerReact(React.Component) {
   resolutions() {
     return Resolutions.find().fetch();
   }
+
   list() {
     let resolutions = this.resolutions();
-    if(!resolutions.length) {
+    if(!resolutions.length && !Session.get('Resolutions.loaded')) {
       return (<LoadingText />)
     } else {
       return (

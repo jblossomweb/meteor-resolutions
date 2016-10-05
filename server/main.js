@@ -6,6 +6,7 @@ Meteor.startup(() => {
 
 Meteor.methods({
   addResolution(text) {
+    check(text, String);
     if(!Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
@@ -20,6 +21,7 @@ Meteor.methods({
     });
   },
   toggleComplete(resolution) {
+    check(resolution, Object);
     if(!Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
@@ -33,6 +35,7 @@ Meteor.methods({
     });
   },
   deleteResolution(resolution) {
+    check(resolution, Object);
     if(!Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
